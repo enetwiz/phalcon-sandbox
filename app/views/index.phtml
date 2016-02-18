@@ -20,13 +20,17 @@ use Phalcon\Tag as Tag;
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#">Logowanie</a></li>
-                <li><a href="#about">Rejestracja</a></li>
-                <li><a href="#contact">Strefa zalogowanych</a></li>
+                <li><?php echo $this->tag->linkTo("index/index", "Home") ?></li>
+                <li><?php echo $this->tag->linkTo("session/index", "Logowanie") ?></li>
+                <li><?php echo $this->tag->linkTo("signup/index", "Rejestracja") ?></li>
+                <li><?php echo $this->tag->linkTo("index/restricted", "Strefa zalogowanych") ?></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a>Witaj Nieznajomy</a></li>
+                <?php if(!$this->session->get('auth')):?>
+                    <li><a>Witaj Nieznajomy</a></li>
+                <?php else: ?>
+                    <li><a class="glyphicon glyphicon-user"> Witaj <?php echo $this->session->get('auth')['name'];?></a></li>
+                <?php endif; ?>
             </ul>
         </div><!--/.nav-collapse -->
     </div>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link type="text/css" href="http://localhost/css/bootstrap.min.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<div class="row">
+    <div class="col-md-4 col-md-offset-4">
+
+        <?php echo $this->tag->form(array("signup/register", "class" => "form-signin")); ?>
+            <h2 class="form-signin-heading">Rejestracja</h2>
+            <p>
+                <?php echo $this->tag->textField(array("name", "class" => "form-control", "placeholder" => "Uzytkownik")) ?>
+            </p>
+
+            <p>
+                <?php echo $this->tag->passwordField(array("password", "class" => "form-control", "placeholder" => "Haslo")) ?>
+            </p>
+
+            <p>
+                <?php echo $this->tag->textField(array("email", "class" => "form-control", "placeholder" => "E-mail")) ?>
+            </p>
+
+            <p>
+                <?php echo $this->tag->submitButton(array("Rejestracja", "class" => "btn btn-lg btn-primary btn-block")) ?>
+                <?php echo $this->tag->linkTo(array("session/index", "Logowanie", "class" => "btn btn-md btn-link")) ?>
+            </p>
+        </form>
+
+    </div>
+</div>
+
+</body>
+</html>
+
